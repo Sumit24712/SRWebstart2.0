@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <form>
+    <center>
+    <h1>Cosmic Bank
+    </h1></center>
+        <label for="name"><span>Name :</span></label>
+        <input type="text" id="name" name="name" placeholder="Write your name"><br><br>
+        <label for="email"><span>Email :</span></label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="password"><span>Password :</span></label>
+        <input type="password" id="password" name="password"><br><br>
+         <label><span>Branch : </span><input type="text" name="name"> </label> <br><br>
+         <label><span>Choose Account Type</span></label><br><br>
+         <select name="account_type">
+            <option value="savings">Savings</option>
+            <option value="current">Current</option>
+            <option value="fixed">Fixed</option>
+            </select><br><br>
+        <label for="Bank_acc_number"><span>Enter account number :</span></label>
+        <input type="number" id="acc_number" name="acc_number" required pattern="[0-9]{12}" maxlength="12" ><br><br>
+        <button type="submit"><span>Submit</span></button>
+        <button type="reset"><span>Reset</span></button>
+        
+    </form>
+</body>
+</html>
