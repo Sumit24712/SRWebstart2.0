@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top 5 Trending Songs</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px;">
+
+  <div style="max-width: 500px; margin: auto; overflow-y: auto; height: 100vh; box-sizing: border-box;">
+
+    <h1 style="text-align: center; color: #222;">🎶 Top 5 Trending Songs 🎶</h1>
+
+    <div style="margin-bottom: 30px; text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpnb7SWDC4nIlssRRcMb2sfxKmWczCmM9_5Q&s" alt="Blinding Lights" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <h2>Blinding Lights</h2>
+      <p>Artist: The Weeknd</p>
+      <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" target="_blank">🎧 Spotify</a> |
+      <a href="https://www.youtube.com/results?search_query=Blinding+Lights+The+Weeknd" target="_blank">▶ YouTube</a>
+    </div>
+
+    <div style="margin-bottom: 30px; text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdOgEM6usP9qF-bezjllseFa6TuonyrEt9fw&s" alt="Levitating" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <h2>Levitating</h2>
+      <p>Artist: Dua Lipa ft. DaBaby</p>
+      <a href="https://open.spotify.com/track/463CkQjx2Zk1yXoBuierM9" target="_blank">🎧 Spotify</a> |
+      <a href="https://www.youtube.com/results?search_query=Levitating+Dua+Lipa+DaBaby" target="_blank">▶ YouTube</a>
+    </div>
+
+    <div style="margin-bottom: 30px; text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnB2VrxKbhP34mWt16X0ncYSvw9p4gjTlYdQ&s" alt="Stay" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <h2>Stay</h2>
+      <p>Artist: The Kid LAROI & Justin Bieber</p>
+      <a href="https://open.spotify.com/track/5HCyWlXZPP0y6Gqq8TgA20" target="_blank">🎧 Spotify</a> |
+      <a href="https://www.youtube.com/results?search_query=Stay+The+Kid+LAROI+Justin+Bieber" target="_blank">▶ YouTube</a>
+    </div>
+
+    <div style="margin-bottom: 30px; text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-rg1vcqnsijXyTYtLzCflIRI9TYTtlU781w&s" alt="Peaches" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <h2>Peaches</h2>
+      <p>Artist: Justin Bieber ft. Daniel Caesar, Giveon</p>
+      <a href="https://open.spotify.com/track/4iJyoBOLtHqaGxP12qzhQI" target="_blank">🎧 Spotify</a> |
+      <a href="https://www.youtube.com/results?search_query=Peaches+Justin+Bieber" target="_blank">▶ YouTube</a>
+    </div>
+
+    <div style="margin-bottom: 30px; text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-rDmxgp9h8SHLNhYiGiUMtyZRaDI9QmklQ&s" alt="Good 4 U" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <h2>Good 4 U</h2>
+      <p>Artist: Olivia Rodrigo</p>
+      <a href="https://open.spotify.com/track/1fZASV9eG1VvP4F9bVdD6D" target="_blank">🎧 Spotify</a> |
+      <a href="https://www.youtube.com/results?search_query=Good+4+U+Olivia+Rodrigo" target="_blank">▶ YouTube</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <h3>🔍 Search for Any Song</h3>
+      <form onsubmit="return searchSong()">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Type song name..."
+          style="padding: 10px; width: 70%; border-radius: 8px;"
+          required
+        />
+        <select id="platform" style="padding: 10px; border-radius: 8px;">
+          <option value="spotify">Spotify</option>
+          <option value="youtube">YouTube</option>
+        </select>
+        <button
+          type="submit"
+          style="padding: 10px 20px; margin-top: 10px; border-radius: 8px; background-color: #28a745; color: white; border: none; cursor: pointer;"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 10px; background-color: #222; color: white;">
+      &copy; 2025
+    </footer>
+  </div>
+
+  <script>
+    function searchSong() {
+      const query = document.getElementById("searchInput").value;
+      const platform = document.getElementById("platform").value;
+      if (query.trim() === "") return false;
+
+      const url =
+        platform === "spotify"
+          ? `https://open.spotify.com/search/${encodeURIComponent(query)}`
+          : `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+
+      window.open(url, "_blank");
+      return false;
+    }
+  </script>
+
+</body>
+</html>
