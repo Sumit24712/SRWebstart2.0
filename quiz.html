@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      margin: 10px 0;
+    }
+
+    .option label {
+      cursor: pointer;
+      margin-left: 8px;
+    }
+
+    #submit {
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h2 id="question">Question text</h2>
+  <form id="quiz-form">
+    <div class="option"><input type="radio" name="answer" value="0" id="opt0"><label for="opt0" id="label0"></label></div>
+    <div class="option"><input type="radio" name="answer" value="1" id="opt1"><label for="opt1" id="label1"></label></div>
+    <div class="option"><input type="radio" name="answer" value="2" id="opt2"><label for="opt2" id="label2"></label></div>
+    <div class="option"><input type="radio" name="answer" value="3" id="opt3"><label for="opt3" id="label3"></label></div>
+    <button type="button" id="submit">Submit</button>
+    <div id="feedback"></div>
+  </form>
+</div>
+
+<script>
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["London", "Berlin", "Paris", "Madrid"],
+      answer: 2
+    },
+    {
+      question: "Which planet is known as the Red Planet?",
+      options: ["Earth", "Mars", "Jupiter", "Saturn"],
+      answer: 1
+    },
+    {
+      question: "Who wrote 'Romeo and Juliet'?",
+      options: ["Shakespeare", "Charles Dickens", "Hemingway", "Tolstoy"],
+      answer: 0
+    }
+  ];
+
+  let currentQuestion = 0;
+
+  const questionEl = document.getElementById("question");
+  const labels = [label0, label1, label2, label3];
+  const radios = [opt0, opt1, opt2, opt3];
+  const feedbackEl = document.getElementById("feedback");
+  const submitBtn = document.getElementById("submit");
+
+  function loadQuestion() {
+    const q = questions[currentQuestion];
+    questionEl.textContent = q.question;
+    q.options.forEach((opt, i) => {
+      labels[i].textContent = opt;
+      radios[i].checked = false;
+    });
+    feedbackEl.textContent = "";
+    feedbackEl.className = "";
+  }
+
+  function getSelectedAnswer() {
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) return i;
+    }
+    return null;
+  }
+
+  submitBtn.addEventListener("click", () => {
+    const selected = getSelectedAnswer();
+
+    if (selected === null) {
+      feedbackEl.textContent = "Please select an answer!";
+      feedbackEl.className = "wrong";
+      return;
+    }
+
+    const correct = questions[currentQuestion].answer;
+
+    if (selected === correct) {
+      feedbackEl.textContent = "Correct! 🎉";
+      feedbackEl.className = "correct";
+    } else {
+      feedbackEl.textContent = "Wrong ❌";
+      feedbackEl.className = "wrong";
+    }
+
+    // Wait 1.2s, then load next or finish
+    setTimeout(() => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        questionEl.textContent = "Quiz Completed!";
+        document.getElementById("quiz-form").innerHTML = "";
+      }
+    }, 1200);
+  });
+
+  loadQuestion();
+</script>
+
+</body>
+</html>
